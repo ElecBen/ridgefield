@@ -1,0 +1,11 @@
+[project]
+name = "ridgefield"
+version = "0.1.0"
+description = "Estadistica descriptiva sobre listas de numeros"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+keywords = ["estadistica", "media", "mediana", "percentil", "atipicos"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
