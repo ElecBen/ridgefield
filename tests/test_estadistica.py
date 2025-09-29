@@ -22,3 +22,8 @@ def test_mediana_impar():
 
 def test_mediana_par():
     assert mediana([1, 2, 3, 4]) == 2.5
+
+
+def test_mediana_de_nada():
+    with pytest.raises(ValueError):
+        mediana([])
