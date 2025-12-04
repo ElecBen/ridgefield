@@ -1,6 +1,6 @@
 import pytest
 
-from estadistica import media, mediana
+from estadistica import desviacion, media, mediana
 
 
 def test_media():
@@ -27,3 +27,11 @@ def test_mediana_par():
 def test_mediana_de_nada():
     with pytest.raises(ValueError):
         mediana([])
+
+
+def test_desviacion():
+    assert round(desviacion([1, 2, 3, 4]), 3) == 1.291
+
+
+def test_desviacion_de_datos_iguales_es_cero():
+    assert desviacion([5, 5, 5]) == 0
