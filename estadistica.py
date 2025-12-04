@@ -17,3 +17,10 @@ def mediana(datos):
     if len(ordenados) % 2:
         return ordenados[mitad]
     return (ordenados[mitad - 1] + ordenados[mitad]) / 2
+
+
+def desviacion(datos):
+    """La desviacion tipica de la muestra, con n-1 en el divisor."""
+    centro = media(datos)
+    cuadrados = sum((x - centro) ** 2 for x in datos)
+    return math.sqrt(cuadrados / (len(datos) - 1))
