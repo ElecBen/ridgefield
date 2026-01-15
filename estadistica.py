@@ -21,6 +21,8 @@ def mediana(datos):
 
 def desviacion(datos):
     """La desviacion tipica de la muestra, con n-1 en el divisor."""
+    if len(datos) < 2:
+        raise ValueError("hacen falta al menos dos datos")
     centro = media(datos)
     cuadrados = sum((x - centro) ** 2 for x in datos)
     return math.sqrt(cuadrados / (len(datos) - 1))
