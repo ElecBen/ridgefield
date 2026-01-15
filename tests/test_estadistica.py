@@ -35,3 +35,8 @@ def test_desviacion():
 
 def test_desviacion_de_datos_iguales_es_cero():
     assert desviacion([5, 5, 5]) == 0
+
+
+def test_desviacion_de_un_solo_dato():
+    with pytest.raises(ValueError):
+        desviacion([1])
