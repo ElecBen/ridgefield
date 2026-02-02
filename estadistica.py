@@ -1,3 +1,5 @@
+"""Estadistica descriptiva sin dependencias externas."""
+
 import math
 
 
