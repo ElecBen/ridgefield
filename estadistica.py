@@ -2,6 +2,8 @@
 
 import math
 
+__all__ = ["desviacion", "media", "mediana"]
+
 
 def media(datos):
     """La media aritmetica de los datos."""
