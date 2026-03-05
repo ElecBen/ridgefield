@@ -1,18 +1,20 @@
 """Estadistica descriptiva sin dependencias externas."""
 
+from __future__ import annotations
+
 import math
 
 __all__ = ["desviacion", "media", "mediana"]
 
 
-def media(datos):
+def media(datos: list[float]) -> float:
     """La media aritmetica de los datos."""
     if not datos:
         raise ValueError("datos no puede estar vacio")
     return sum(datos) / len(datos)
 
 
-def mediana(datos):
+def mediana(datos: list[float]) -> float:
     """El valor central, o la media de los dos centrales si son pares."""
     if not datos:
         raise ValueError("datos no puede estar vacio")
@@ -23,7 +25,7 @@ def mediana(datos):
     return (ordenados[mitad - 1] + ordenados[mitad]) / 2
 
 
-def desviacion(datos):
+def desviacion(datos: list[float]) -> float:
     """La desviacion tipica de la muestra, con n-1 en el divisor."""
     if len(datos) < 2:
         raise ValueError("hacen falta al menos dos datos")
