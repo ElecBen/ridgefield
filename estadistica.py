@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import math
 
-__all__ = ["desviacion", "media", "mediana"]
+__all__ = ["desviacion", "media", "mediana", "percentil"]
 
 
 def media(datos: list[float]) -> float:
@@ -32,3 +32,14 @@ def desviacion(datos: list[float]) -> float:
     centro = media(datos)
     cuadrados = sum((x - centro) ** 2 for x in datos)
     return math.sqrt(cuadrados / (len(datos) - 1))
+
+
+def percentil(datos, p):
+    """El percentil `p` por interpolacion lineal entre vecinos."""
+    ordenados = sorted(datos)
+    sitio = (len(ordenados) - 1) * p / 100
+    bajo = int(sitio)
+    if bajo == sitio:
+        return ordenados[bajo]
+    resto = sitio - bajo
+    return ordenados[bajo] * (1 - resto) + ordenados[bajo + 1] * resto
