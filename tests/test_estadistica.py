@@ -1,6 +1,6 @@
 import pytest
 
-from estadistica import desviacion, media, mediana
+from estadistica import desviacion, media, mediana, percentil
 
 
 def test_media():
@@ -40,3 +40,16 @@ def test_desviacion_de_datos_iguales_es_cero():
 def test_desviacion_de_un_solo_dato():
     with pytest.raises(ValueError):
         desviacion([1])
+
+
+def test_percentil_del_medio_es_la_mediana():
+    assert percentil([1, 2, 3, 4], 50) == mediana([1, 2, 3, 4])
+
+
+def test_percentil_en_las_puntas():
+    assert percentil([1, 2, 3], 0) == 1
+    assert percentil([1, 2, 3], 100) == 3
+
+
+def test_percentil_interpola():
+    assert round(percentil([1, 2, 3, 4], 25), 3) == 1.75
