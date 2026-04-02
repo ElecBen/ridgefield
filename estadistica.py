@@ -36,6 +36,10 @@ def desviacion(datos: list[float]) -> float:
 
 def percentil(datos, p):
     """El percentil `p` por interpolacion lineal entre vecinos."""
+    if not datos:
+        raise ValueError("datos no puede estar vacio")
+    if not 0 <= p <= 100:
+        raise ValueError("p debe estar entre 0 y 100")
     ordenados = sorted(datos)
     sitio = (len(ordenados) - 1) * p / 100
     bajo = int(sitio)
