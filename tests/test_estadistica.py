@@ -53,3 +53,8 @@ def test_percentil_en_las_puntas():
 
 def test_percentil_interpola():
     assert round(percentil([1, 2, 3, 4], 25), 3) == 1.75
+
+
+def test_percentil_fuera_de_rango():
+    with pytest.raises(ValueError):
+        percentil([1, 2], 150)
