@@ -1,6 +1,6 @@
 import pytest
 
-from estadistica import desviacion, media, mediana, percentil
+from estadistica import desviacion, media, mediana, percentil, resumen
 
 
 def test_media():
@@ -58,3 +58,13 @@ def test_percentil_interpola():
 def test_percentil_fuera_de_rango():
     with pytest.raises(ValueError):
         percentil([1, 2], 150)
+
+
+def test_resumen_trae_todas_las_medidas():
+    salida = resumen([1, 2, 3])
+    assert salida == {"n": 3, "media": 2, "mediana": 2, "min": 1, "max": 3}
+
+
+def test_resumen_de_un_solo_dato():
+    salida = resumen([7])
+    assert salida["min"] == salida["max"] == 7
