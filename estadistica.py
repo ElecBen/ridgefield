@@ -4,7 +4,8 @@ from __future__ import annotations
 
 import math
 
-__all__ = ["desviacion", "media", "mediana", "percentil", "resumen"]
+__all__ = ["atipicos", "desviacion", "media", "mediana", "percentil",
+           "resumen"]
 
 
 def media(datos: list[float]) -> float:
@@ -53,3 +54,10 @@ def resumen(datos):
     """Un diccionario con las medidas que se miran siempre."""
     return {"n": len(datos), "media": media(datos), "mediana": mediana(datos),
             "min": min(datos), "max": max(datos)}
+
+
+def atipicos(datos, veces=1.5):
+    """Los valores que caen fuera de las bigoteras de Tukey."""
+    bajo, alto = percentil(datos, 25), percentil(datos, 75)
+    margen = veces * (alto - bajo)
+    return [x for x in datos if x < bajo - margen or x > alto + margen]
