@@ -1,6 +1,7 @@
 import pytest
 
-from estadistica import desviacion, media, mediana, percentil, resumen
+from estadistica import (atipicos, desviacion, media, mediana, percentil,
+                         resumen)
 
 
 def test_media():
@@ -68,3 +69,15 @@ def test_resumen_trae_todas_las_medidas():
 def test_resumen_de_un_solo_dato():
     salida = resumen([7])
     assert salida["min"] == salida["max"] == 7
+
+
+def test_atipicos_pilla_el_bicho():
+    assert atipicos([1, 2, 3, 4, 100]) == [100]
+
+
+def test_atipicos_no_ve_nada_raro():
+    assert atipicos([1, 2, 3, 4]) == []
+
+
+def test_atipicos_los_da_en_el_orden_de_entrada():
+    assert atipicos([100, 1, 2, 3, 4, 5, 6, 7, 8, 200]) == [100, 200]
