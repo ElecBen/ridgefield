@@ -35,7 +35,7 @@ def desviacion(datos: list[float]) -> float:
     return math.sqrt(cuadrados / (len(datos) - 1))
 
 
-def percentil(datos, p):
+def percentil(datos: list[float], p: float) -> float:
     """El percentil `p` por interpolacion lineal entre vecinos."""
     if not datos:
         raise ValueError("datos no puede estar vacio")
@@ -50,13 +50,14 @@ def percentil(datos, p):
     return ordenados[bajo] * (1 - resto) + ordenados[bajo + 1] * resto
 
 
-def resumen(datos):
+def resumen(datos: list[float]) -> dict:
     """Un diccionario con las medidas que se miran siempre."""
     return {"n": len(datos), "media": media(datos), "mediana": mediana(datos),
             "min": min(datos), "max": max(datos)}
 
 
-def atipicos(datos, veces=1.5):
+def atipicos(datos: list[float],
+             veces: float = 1.5) -> list[float]:
     """Los valores que caen fuera de las bigoteras de Tukey."""
     bajo, alto = percentil(datos, 25), percentil(datos, 75)
     margen = veces * (alto - bajo)
