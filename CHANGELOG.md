@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.0
+
+- percentil(): el percentil `p` interpolando entre los dos vecinos
+- resumen(): un diccionario con las medidas de siempre
+- atipicos(): los valores que se salen del rango de Tukey
+- Los tests corren en GitHub Actions
+
 ## 0.2.0
 
 - desviacion(): la desviacion tipica de la muestra

@@ -1,6 +1,6 @@
 [project]
 name = "ridgefield"
-version = "0.2.0"
+version = "0.3.0"
 description = "Estadistica descriptiva sobre listas de numeros"
 requires-python = ">=3.9"
 license = { text = "MIT" }
