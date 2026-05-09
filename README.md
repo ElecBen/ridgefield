@@ -29,3 +29,11 @@ docs/           notas de diseno
 | `percentil(datos, p)` | el percentil `p` interpolando entre los dos vecinos |
 | `resumen(datos)` | un diccionario con las medidas de siempre |
 | `atipicos(datos, veces)` | los valores que se salen del rango de Tukey |
+
+## Medir
+
+El banco de pruebas vive en `bench/` y se lanza como modulo, siempre desde la raiz del repo:
+
+```
+python -m bench.medir
+```
