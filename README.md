@@ -1,5 +1,7 @@
 # ridgefield
 
+![tests](https://github.com/ElecBen/ridgefield/actions/workflows/tests.yml/badge.svg)
+
 Estadistica descriptiva sobre listas de numeros.
 
 ## Uso
